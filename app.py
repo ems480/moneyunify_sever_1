@@ -12,7 +12,10 @@ PAYMENTS_VERIFY_URL = "https://api.moneyunify.one/payments/verify"
 # In-memory store (OK for testing)
 PAYMENTS = {}
 
-
+@app.route("/health")
+def health():
+    return jsonify({"status": "ok"}), 200
+    
 @app.route("/")
 def home():
     return "StudyCraft Payment Server Running"
@@ -85,3 +88,4 @@ def payment_status():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
