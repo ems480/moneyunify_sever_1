@@ -12,6 +12,10 @@ PAYMENTS_VERIFY_URL = "https://api.moneyunify.one/payments/verify"
 # In-memory store (OK for testing)
 PAYMENTS = {}
 
+@app.route("/ping")
+def ping():
+    return "Moneyunify_server_1_Running"
+
 @app.route("/health")
 def health():
     return jsonify({"status": "ok"}), 200
